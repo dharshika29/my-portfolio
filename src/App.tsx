@@ -3,6 +3,7 @@ import { useState } from "react";
 // Global Effects
 import CustomCursor from "./components/ui/CustomCursor";
 import MouseSpotlight from "./components/ui/MouseSpotlight";
+import GridBackground from "./components/home/GridBackground";
 
 // Layout
 import RightSidebar from "./components/layout/RightSidebar";
@@ -19,6 +20,8 @@ import Certifications from "./components/home/Certifications";
 import Contact from "./components/home/Contact";
 
 import { ThemeProvider } from "./context/ThemeContext";
+
+import MobileNav from "./components/layout/MobileNav";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -40,12 +43,19 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <main className="relative bg-background h-screen w-full overflow-hidden text-foreground">
+      <main className="relative bg-background h-[100dvh] w-full overflow-hidden text-foreground">
         <CustomCursor />
         <MouseSpotlight />
+        <GridBackground />
+        
+        {/* Mobile Navigation (Hidden on Desktop) */}
+        <MobileNav activeTab={currentPage} setActiveTab={setCurrentPage} />
+        
+        {/* Desktop Navigation (Hidden on Mobile) */}
         <RightSidebar activeTab={currentPage} setActiveTab={setCurrentPage} />
         
-        <div className="w-full h-full lg:pr-24">
+        {/* Main Content Area */}
+        <div className="w-full h-full lg:pr-24 pt-20 lg:pt-0">
           {renderPage()}
         </div>
       </main>

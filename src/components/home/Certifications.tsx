@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Award, ShieldCheck, ExternalLink, Calendar, Key } from "lucide-react";
+import { Award, ShieldCheck, Calendar, Key } from "lucide-react";
 
 export default function Certifications() {
   return (

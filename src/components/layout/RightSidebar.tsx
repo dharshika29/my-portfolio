@@ -23,10 +23,10 @@ export default function RightSidebar({ activeTab, setActiveTab }: RightSidebarPr
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="fixed right-0 top-0 h-full w-24 z-[100] hidden lg:flex flex-col items-center py-8 bg-card/50 backdrop-blur-2xl border-l border-border/50 shadow-2xl">
+    <div className="fixed right-0 top-0 h-full w-24 z-[100] hidden lg:flex flex-col items-center py-6 bg-card/50 backdrop-blur-2xl border-l border-border/50 shadow-2xl">
       
       {/* Profile Image */}
-      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/50 shadow-[0_0_15px_rgba(255,74,87,0.3)] mb-12 shrink-0">
+      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/50 shadow-[0_0_15px_rgba(255,74,87,0.3)] mb-6 shrink-0">
         <img 
           src={profileImage} 
           alt="Dharshika S" 
@@ -35,7 +35,7 @@ export default function RightSidebar({ activeTab, setActiveTab }: RightSidebarPr
       </div>
 
       {/* Navigation */}
-      <div className="flex flex-col gap-6 flex-1 w-full items-center overflow-y-auto overflow-x-hidden no-scrollbar">
+      <div className="flex flex-col gap-3 flex-1 w-full items-center overflow-visible justify-center">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;
@@ -49,17 +49,21 @@ export default function RightSidebar({ activeTab, setActiveTab }: RightSidebarPr
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_10px_rgba(255,74,87,0.8)]" />
               )}
               
-              <div className={`p-2 rounded-xl transition-all duration-300 ${
+              <div className={`relative flex items-center justify-center p-2 rounded-xl transition-all duration-300 ${
                 isActive ? "bg-primary/20 text-primary scale-110 shadow-[0_0_15px_rgba(255,74,87,0.3)]" : "text-muted hover:text-foreground hover:bg-foreground/5"
               }`}>
                 <Icon size={20} />
-              </div>
 
-              {/* Tooltip */}
-              <span className="absolute right-full mr-4 bg-card border border-border text-foreground px-3 py-1.5 rounded text-xs font-medium opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-xl">
-                {item.label}
-                <span className="absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent border-l-card" />
-              </span>
+                {/* Tooltip & Active Label (Positioned relative to the icon wrapper) */}
+                <span className={`absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-card border border-border text-foreground px-3 py-1.5 rounded text-xs font-medium transition-all whitespace-nowrap shadow-xl ${
+                  isActive ? "opacity-100 visible text-primary border-primary/30" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"
+                }`}>
+                  {item.label}
+                  <span className={`absolute top-1/2 -right-1 -translate-y-1/2 border-4 border-transparent ${
+                    isActive ? "border-l-primary/30" : "border-l-card"
+                  }`} />
+                </span>
+              </div>
             </button>
           );
         })}

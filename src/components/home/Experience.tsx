@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Briefcase, Code, Terminal, Cpu } from "lucide-react";
+import { Briefcase, Terminal } from "lucide-react";
 
 const experiences = [
   {

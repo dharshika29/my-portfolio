@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { GraduationCap, Award, BookOpen, Star } from "lucide-react";
+import { GraduationCap, Award, BookOpen } from "lucide-react";
 
 const education = [
   {

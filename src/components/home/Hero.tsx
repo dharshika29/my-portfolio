@@ -1,8 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Download, Info, Mail, Globe, Share2, Link, Code2, Layout, FileText } from "lucide-react";
-import ParticleBackground from "./ParticleBackground";
-import GridBackground from "./GridBackground";
+import { Download, Info, Mail, Globe, Code2, Layout, FileText } from "lucide-react";
 import TypewriterText from "../ui/TypewriterText";
 import LoopingTypewriter from "../ui/LoopingTypewriter";
 import heroImage from "../image/DHARSHIKA.png";
@@ -16,9 +14,6 @@ export default function Hero({ setActiveTab }: HeroProps) {
     <motion.section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 w-full h-full">
-        <GridBackground />
-      </div>
 
       {/* Vertical Tech Ticker on Left Edge (Desktop Only) */}
       <div className="absolute left-0 top-0 h-full w-20 md:w-24 border-r border-border/50 bg-foreground/10 backdrop-blur-md z-20 hidden md:flex flex-col items-center overflow-hidden py-10">
@@ -57,7 +52,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
           <motion.div 
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-72 h-72 md:w-[450px] md:h-[450px] border-[4px] border-card rounded-full overflow-hidden relative shadow-[0_0_50px_rgba(255,74,87,0.3)] group-hover:shadow-[0_0_80px_rgba(255,74,87,0.6)] transition-all duration-500 z-10"
+            className="w-56 h-56 sm:w-72 sm:h-72 md:w-[450px] md:h-[450px] border-[4px] border-card rounded-full overflow-hidden relative shadow-[0_0_50px_rgba(255,74,87,0.3)] group-hover:shadow-[0_0_80px_rgba(255,74,87,0.6)] transition-all duration-500 z-10 mx-auto"
           >
             <div className="absolute inset-0 border-[6px] border-primary rounded-full animate-[spin_10s_linear_infinite] border-dashed opacity-50"></div>
             <img 
@@ -70,7 +65,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
               <a href="#" className="text-foreground hover:text-primary transition-colors hover:scale-110" title="GitHub"><Code2 size={18} /></a>
               <a href="#" className="text-foreground hover:text-primary transition-colors hover:scale-110" title="LinkedIn"><Globe size={18} /></a>
               <a href="mailto:contact@example.com" className="text-foreground hover:text-primary transition-colors hover:scale-110" title="Email"><Mail size={18} /></a>
-              <a href="/resume.pdf" className="text-foreground hover:text-primary transition-colors hover:scale-110" title="Resume"><FileText size={18} /></a>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" download="Dharshika_S_Resume.pdf" className="text-foreground hover:text-primary transition-colors hover:scale-110" title="Resume"><FileText size={18} /></a>
             </div>
           </motion.div>
 
@@ -78,7 +73,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
           <motion.div 
             animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -top-6 -right-6 md:-top-10 md:-right-10 bg-card border border-border px-5 py-3 rounded-2xl shadow-xl z-20 flex items-center gap-3 backdrop-blur-md"
+            className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 md:-top-10 md:-right-10 bg-card border border-border px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl z-20 flex items-center gap-2 sm:gap-3 backdrop-blur-md"
           >
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
               <Code2 size={20} />
@@ -92,7 +87,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
           <motion.div 
             animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 bg-card border border-border px-5 py-3 rounded-2xl shadow-xl z-20 flex items-center gap-3 backdrop-blur-md"
+            className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 md:-bottom-10 md:-left-10 bg-card border border-border px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl z-20 flex items-center gap-2 sm:gap-3 backdrop-blur-md"
           >
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
               <Layout size={20} />
@@ -144,7 +139,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
           </p>
           
           <div className="flex items-center justify-center md:justify-start gap-4">
-            <a href="/resume.pdf" className="px-8 py-3 bg-card border border-border text-foreground font-medium hover:bg-primary hover:border-primary transition-all rounded flex items-center gap-2 shadow-lg hover:shadow-primary/20">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" download="Dharshika_S_Resume.pdf" className="px-8 py-3 bg-card border border-border text-foreground font-medium hover:bg-primary hover:border-primary transition-all rounded flex items-center gap-2 shadow-lg hover:shadow-primary/20">
               <Download size={18} />
               Download CV
             </a>
