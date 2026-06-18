@@ -18,8 +18,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Check local storage or system preference on mount
     const savedTheme = localStorage.getItem("theme") as Theme | null;
+    
+    // Force light theme on mobile view
+    const isMobile = window.innerWidth < 1024;
+
     if (savedTheme) {
-      setTheme(savedTheme);
+      // If it's mobile and no theme was explicitly set by user, or even if set, maybe force it?
+      // Usually better to respect savedTheme, but if we want to default mobile to white:
+      setTheme(isMobile ? "light" : savedTheme);
+    } else if (isMobile) {
+      setTheme("light");
     } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
       setTheme("light");
     }
