@@ -55,7 +55,7 @@ export default function App() {
         <RightSidebar activeTab={currentPage} setActiveTab={setCurrentPage} />
         
         {/* Main Content Area */}
-        <div className="w-full h-full lg:pr-24 pt-20 lg:pt-0">
+        <div className="w-full h-full lg:pr-24 pt-20 lg:pt-0 overflow-y-auto overflow-x-hidden">
           {renderPage()}
         </div>
       </main>

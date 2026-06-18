@@ -12,7 +12,7 @@ interface HeroProps {
 export default function Hero({ setActiveTab }: HeroProps) {
   return (
     <motion.section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-start md:items-center justify-center overflow-x-hidden py-10 md:py-0"
     >
 
       {/* Vertical Tech Ticker on Left Edge (Desktop Only) */}
@@ -39,7 +39,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 md:pl-32 relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
+      <div className="container mx-auto px-6 md:pl-32 relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 my-auto pt-10 md:pt-0">
         
         {/* Left Side: Profile Image & Floating Elements */}
         <motion.div 
@@ -73,28 +73,28 @@ export default function Hero({ setActiveTab }: HeroProps) {
           <motion.div 
             animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 md:-top-10 md:-right-10 bg-card border border-border px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl z-20 flex items-center gap-2 sm:gap-3 backdrop-blur-md"
+            className="absolute -top-2 -right-2 sm:-top-6 sm:-right-6 md:-top-10 md:-right-10 bg-card border border-border px-3 py-1.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl z-20 flex items-center gap-2 sm:gap-3 backdrop-blur-md"
           >
-            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-              <Code2 size={20} />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+              <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <p className="text-foreground font-bold text-sm">1+ Years</p>
-              <p className="text-muted text-xs">Experience</p>
+              <p className="text-foreground font-bold text-xs sm:text-sm">1+ Years</p>
+              <p className="text-muted text-[10px] sm:text-xs">Experience</p>
             </div>
           </motion.div>
 
           <motion.div 
             animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 md:-bottom-10 md:-left-10 bg-card border border-border px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl z-20 flex items-center gap-2 sm:gap-3 backdrop-blur-md"
+            className="absolute -bottom-2 -left-2 sm:-bottom-6 sm:-left-6 md:-bottom-10 md:-left-10 bg-card border border-border px-3 py-1.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl z-20 flex items-center gap-2 sm:gap-3 backdrop-blur-md"
           >
-            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-              <Layout size={20} />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+              <Layout className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <p className="text-foreground font-bold text-sm">30+ Projects</p>
-              <p className="text-muted text-xs">Completed</p>
+              <p className="text-foreground font-bold text-xs sm:text-sm">30+ Projects</p>
+              <p className="text-muted text-[10px] sm:text-xs">Completed</p>
             </div>
           </motion.div>
 
@@ -116,7 +116,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
           </div>
 
           <TypewriterText text1="Hi, I'm" text2="Dharshika S" />
-          <h2 className="text-xl md:text-2xl text-muted font-medium mb-6 flex items-start md:items-center gap-3 min-h-[60px] md:min-h-[32px]">
+          <h2 className="text-xl md:text-2xl text-muted font-medium mb-6 flex justify-center md:justify-start items-center gap-3 min-h-[60px] md:min-h-[32px]">
             <LoopingTypewriter 
               words={[
                 "Full Stack Developer",
